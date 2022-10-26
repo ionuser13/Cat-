@@ -5,10 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cat generator</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        html {
+            font-size: 62.5%;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        #cat-button {
+            width: max-content;
+        }
+        img {
+            width: 150px;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
     <h1>Random Cat</h1>
-    <img alt="Random Cat Image">
+    <img id="img1" alt="Random Cat Image">
+    <img id="img2" alt="Random Cat Image">
+    <img id="img3" alt="Random Cat Image">
+    <button onclick=reload() id="cat-button">Get a random cat</button>
     <script src="./main.js"></script>
 </body>
 </html>
