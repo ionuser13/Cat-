@@ -18,12 +18,26 @@
             display: flex;
             flex-direction: column;
         }
-        #cat-button {
+        h1 {
+            font-size: 3rem;
+        }
+        h2 {
+            font-size: 2.8rem;
+        }
+        #random-cats article {
+            display: flex;
+            flex-direction: column;
+        }
+        button {
             width: max-content;
         }
         img {
             width: 150px;
             height: auto;
+            margin: 16px 0;
+        }
+        #cat-button {
+            margin: 24px 0;
         }
     </style>
 </head>
@@ -39,17 +53,11 @@
             <img id="img2" alt="Random Cat Image">
             <button id="fav-button">Guardar en Favoritos</button>
         </article>
-        <article>
-            <img id="img3" alt="Random Cat Image">
-            <button id="fav-button">Guardar en Favoritos</button>
-        </article>
-        <button onclick=reload() id="cat-button">Get a random cat</button>
+        <button onclick=loadRandomCats() id="cat-button">Get a random cat</button>
     </section>
-
     <section id="fav-cats">
-        <h2>Favorites</h2>
+        <h2>Favorites Cats</h2>
         <article>
-            <img id="img1" alt="Random Cat Image">
             <button id="fav-button">Sacar de Favoritos</button>
         </article>
     </section>
