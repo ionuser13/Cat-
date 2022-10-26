@@ -29,10 +29,27 @@
 </head>
 <body>
     <h1>Random Cat</h1>
-    <img id="img1" alt="Random Cat Image">
-    <img id="img2" alt="Random Cat Image">
-    <img id="img3" alt="Random Cat Image">
-    <button onclick=reload() id="cat-button">Get a random cat</button>
+
+    <section id="random-cats">
+        <article>
+            <img id="img1" alt="Random Cat Image">
+            <button id="fav-button">Guardar en Favoritos</button>
+        </article>
+        <article>
+            <img id="img2" alt="Random Cat Image">
+            <button id="fav-button">Guardar en Favoritos</button>
+        </article>
+        <article>
+            <img id="img3" alt="Random Cat Image">
+            <button id="fav-button">Guardar en Favoritos</button>
+        </article>
+        <button onclick=reload() id="cat-button">Get a random cat</button>
+    </section>
+
+    <section id="fav-cats">
+        
+    </section>
+    
     <script src="./main.js"></script>
 </body>
 </html>

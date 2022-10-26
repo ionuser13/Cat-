@@ -1,5 +1,5 @@
 console.log("Hello World");
-const API = "https://api.thecatapi.com/v1/images/search?limit=3";
+const API = "https://api.thecatapi.com/v1/images/search?limit=3&api_key=live_armx4JrLwsJuAo9OitmUn4ieHibSokktW9YTlE6Du6q6InUtMOArwesfWhg3Sjfk";
 const img1 = document.getElementById("img1");
 const img2 = document.getElementById("img2");
 const img3 = document.getElementById("img3");
