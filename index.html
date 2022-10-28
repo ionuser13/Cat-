@@ -45,26 +45,24 @@
     <h1>Random Cat App</h1>
     <section id="random-cats">
         <h2>Random Kitties</h2>
-        <span id="error">
-            
-        </span>
+        <span id="error"></span>
         <article>
             <img id="img1" alt="Random Cat Image">
-            <button id="fav-button">Guardar en Favoritos</button>
+            <button id="fav-button1" onclick="saveFavCat()">Guardar en Favoritos</button>
         </article>
         <article>
             <img id="img2" alt="Random Cat Image">
-            <button id="fav-button">Guardar en Favoritos</button>
+            <button id="fav-button2" onclick="saveFavCat()">Guardar en Favoritos</button>
         </article>
-        <button onclick=loadRandomCats() id="cat-button">Get a random cat</button>
+        <button onclick="loadRandomCats()" id="cat-button">Get a random cat</button>
     </section>
     <section id="fav-cats">
         <h2>Favorites Cats</h2>
         <article>
-            <button id="fav-button">Sacar de Favoritos</button>
+            <button id="nofav-button">Sacar de Favoritos</button>
         </article>
     </section>
     
-    <script src="./main.js"></script>
+    <script defer src="./main.js"></script>
 </body>
 </html>
