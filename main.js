@@ -1,5 +1,6 @@
 const API_Main = "https://api.thecatapi.com/v1/images/search?limit=2&api_key=live_armx4JrLwsJuAo9OitmUn4ieHibSokktW9YTlE6Du6q6InUtMOArwesfWhg3Sjfk";
 const API_Fav = "https://api.thecatapi.com/v1/favourites?api_key=live_armx4JrLwsJuAo9OitmUn4ieHibSokktW9YTlE6Du6q6InUtMOArwesfWhg3Sjfk";
+const API_Delete = (id) => `https://api.thecatapi.com/v1/favourites/${id}?api_key=live_armx4JrLwsJuAo9OitmUn4ieHibSokktW9YTlE6Du6q6InUtMOArwesfWhg3Sjfk`
 
 const spanError = document.getElementById("error");
 
@@ -49,7 +50,8 @@ async function loadFavoritesCats() {
             const buttonText = document.createTextNode("Sacar de favoritos");
 
             button.appendChild(buttonText);
-            button.classList.add("fav-button")
+            button.classList.add("fav-button");
+            button.onclick = () => deleteFavCat(cat.id)
             img.src = cat.image.url;
             img.classList.add("fav-image")
             article.appendChild(img)
@@ -75,8 +77,23 @@ async function saveFavCat(id) {
     if(response.status !== 200) {
         spanError.textContent = "Ha ocurrido un error:" + response.status + saveData.message;
     }
+    else {
+        console.log("Cat added to favorites")
+    }
 }
 
+async function deleteFavCat(id) {
+    const response = await fetch(API_Delete(id), {
+        method: "DELETE",
+    });
+    const saveData = await response.json();
+    if(response.status !== 200) {
+        spanError.textContent = "Ha ocurrido un error:" + response.status + saveData.message;
+    }
+    else {
+        console.log("Cat removed from favorites")
+    }
+}
 loadRandomCats()
 loadFavoritesCats()
 //cambiar para cualquier numero de gatos
