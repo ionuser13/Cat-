@@ -42,8 +42,13 @@ async function loadFavoritesCats() {
         spanError.innerHTML = "Ha ocurrido un error: " + response.status + dataFav.message;
     }
     else {
+        const section = document.getElementById("fav-cats")
+        section.innerHTML = "";
+        const h2 = document.createElement("h2");
+        const h2Text = document.createTextNode("Favorite Cats");
+        h2.appendChild(h2Text);
+        section.appendChild(h2);
         dataFav.forEach(cat => {
-            const section = document.getElementById("fav-cats")
             const article = document.createElement("article");
             const img = document.createElement("img");
             const button = document.createElement("button");
@@ -79,6 +84,7 @@ async function saveFavCat(id) {
     }
     else {
         console.log("Cat added to favorites")
+        loadFavoritesCats()
     }
 }
 
@@ -92,6 +98,7 @@ async function deleteFavCat(id) {
     }
     else {
         console.log("Cat removed from favorites")
+        loadFavoritesCats()
     }
 }
 loadRandomCats()
