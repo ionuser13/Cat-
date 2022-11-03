@@ -12,15 +12,22 @@ async function loadRandomCats(){
         spanError.innerHTML = "Ha ocurrido un error" + response.status;
     }
     else {
-        // randomData.forEach((element, item)=>{
-        //     element.src = data[item].url;
-        //     element.parentElement.setAttribute("data", `${randomData[item].id}`)
-        // })
+        const randomSection = document.querySelector("#random-cats");
+        const fragment = new DocumentFragment();
+        randomData.forEach(cat =>{
+            const article = document.createElement("article");
+            const img = document.createElement("img");
+            const button = document.createElement("button");
+            const buttonText = document.createTextNode("Guardar en favoritos");
+            img.src = cat.url;
+            button.addEventListener("click", saveFavCat.bind("idCat", cat.id))
+            button.appendChild(buttonText);
+            article.appendChild(img);
+            article.appendChild(button);
 
-        // const img1 = document.getElementById("img1");
-        // const img2 = document.getElementById("img2");
-        // img1.src = randomData[0].url;
-        // img2.src = randomData[1].url;
+            fragment.appendChild(article)
+        })
+        randomSection.appendChild(fragment)
     }
     return randomData
 }
