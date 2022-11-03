@@ -1,6 +1,6 @@
-const API_Main = "https://api.thecatapi.com/v1/images/search?limit=2&api_key=live_armx4JrLwsJuAo9OitmUn4ieHibSokktW9YTlE6Du6q6InUtMOArwesfWhg3Sjfk";
-const API_Fav = "https://api.thecatapi.com/v1/favourites?api_key=live_armx4JrLwsJuAo9OitmUn4ieHibSokktW9YTlE6Du6q6InUtMOArwesfWhg3Sjfk";
-const API_Delete = (id) => `https://api.thecatapi.com/v1/favourites/${id}?api_key=live_armx4JrLwsJuAo9OitmUn4ieHibSokktW9YTlE6Du6q6InUtMOArwesfWhg3Sjfk`
+const API_Main = "https://api.thecatapi.com/v1/images/search?limit=2";
+const API_Fav = "https://api.thecatapi.com/v1/favourites";
+const API_Delete = (id) => `https://api.thecatapi.com/v1/favourites/${id}`
 
 const spanError = document.getElementById("error");
 
@@ -34,7 +34,12 @@ async function loadRandomCats(){
 }
 
 async function loadFavoritesCats() {
-    const response = await fetch(API_Fav);
+    const response = await fetch(API_Fav, {
+        method: "GET",
+        headers: {
+            "X-API-KEY" : "live_armx4JrLwsJuAo9OitmUn4ieHibSokktW9YTlE6Du6q6InUtMOArwesfWhg3Sjfk"
+        }
+    });
     const dataFav = await response.json();
     console.log("fav")
     console.log(dataFav)
@@ -71,6 +76,7 @@ async function saveFavCat(id) {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
+            "X-API-KEY" : "live_armx4JrLwsJuAo9OitmUn4ieHibSokktW9YTlE6Du6q6InUtMOArwesfWhg3Sjfk"
         },
         body: JSON.stringify({
             image_id: id
@@ -91,6 +97,9 @@ async function saveFavCat(id) {
 async function deleteFavCat(id) {
     const response = await fetch(API_Delete(id), {
         method: "DELETE",
+        headers: {
+            "X-API-KEY" : "live_armx4JrLwsJuAo9OitmUn4ieHibSokktW9YTlE6Du6q6InUtMOArwesfWhg3Sjfk"
+        }
     });
     const saveData = await response.json();
     if(response.status !== 200) {
