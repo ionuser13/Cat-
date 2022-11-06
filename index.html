@@ -46,6 +46,13 @@
     <section id="random-cats">
         <h2>Random Kitties</h2>
         <span id="error"></span>
+        <section id="uploading-cat">
+            <h2>Upload your cat's pics</h2>
+            <form id="uploading-form">
+                <input id="file" type="file" name="file">
+                <button type="button" onclick="uploadCatPic()">Upload Cat Photo</button>
+            </form>
+        </section>
         <button onclick="loadRandomCats()" id="cat-button">Get a random cat</button>
     </section>
     <section id="fav-cats">
@@ -54,7 +61,6 @@
             <button id="nofav-button">Sacar de Favoritos</button>
         </article>
     </section>
-    
     <script defer src="./main.js"></script>
 </body>
 </html>

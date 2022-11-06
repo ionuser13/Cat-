@@ -110,6 +110,12 @@ async function deleteFavCat(id) {
         loadFavoritesCats()
     }
 }
+async function uploadCatPic() {
+    const form = document.getElementById("uploading-form");
+    const formData = new FormData(form);
+    const response = await fetch ()
+    console.log(formData.get("file"))
+}
 loadRandomCats()
 loadFavoritesCats()
 //cambiar para cualquier numero de gatos
