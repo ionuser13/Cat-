@@ -1,3 +1,8 @@
+const api = axios.create({
+    baseURL: "https://api.thecatapi.com/v1/"
+});
+api.defaults.headers.common("X-API-KEY") = "live_armx4JrLwsJuAo9OitmUn4ieHibSokktW9YTlE6Du6q6InUtMOArwesfWhg3Sjfk";
+
 const API_Main = "https://api.thecatapi.com/v1/images/search?limit=2";
 const API_Fav = "https://api.thecatapi.com/v1/favourites";
 const API_Delete = (id) => `https://api.thecatapi.com/v1/favourites/${id}`
