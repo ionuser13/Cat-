@@ -1,6 +1,7 @@
 const API_Main = "https://api.thecatapi.com/v1/images/search?limit=2";
 const API_Fav = "https://api.thecatapi.com/v1/favourites";
 const API_Delete = (id) => `https://api.thecatapi.com/v1/favourites/${id}`
+const API_upload = "https://api.thecatapi.com/v1/images/upload"
 
 const spanError = document.getElementById("error");
 
@@ -113,8 +114,24 @@ async function deleteFavCat(id) {
 async function uploadCatPic() {
     const form = document.getElementById("uploading-form");
     const formData = new FormData(form);
-    const response = await fetch ()
+    const response = await fetch(API_upload, {
+        method: "POST",
+        headers: {
+            "X-API-KEY": "live_armx4JrLwsJuAo9OitmUn4ieHibSokktW9YTlE6Du6q6InUtMOArwesfWhg3Sjfk"
+        },
+        body: formData,
+    })
+    const data = await response.json();
     console.log(formData.get("file"))
+    if(response.status!== 201) {
+        spanError.innerHTML = `There was an error when uploading cat: ${response.status} ${data.message}`
+    }
+    else {
+        console.log("Cat pic uploaded");
+        console.log({data});
+        console.log(data.url)
+        saveFavCat(data.id)
+    }
 }
 loadRandomCats()
 loadFavoritesCats()
