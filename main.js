@@ -3,7 +3,7 @@ const api = axios.create({
 });
 api.defaults.headers.common["X-API-KEY"] = "live_armx4JrLwsJuAo9OitmUn4ieHibSokktW9YTlE6Du6q6InUtMOArwesfWhg3Sjfk";
 
-const API_Main = "https://api.thecatapi.com/v1/images/search?limit=2";
+const API_Main = "https://api.thecatapi.com/v1/images/search?limit=10";
 const API_Fav = "https://api.thecatapi.com/v1/favourites";
 const API_Delete = (id) => `https://api.thecatapi.com/v1/favourites/${id}`
 const API_upload = "https://api.thecatapi.com/v1/images/upload"
@@ -28,6 +28,8 @@ async function loadRandomCats(){
             const buttonText = document.createTextNode("Guardar en favoritos");
             img.src = cat.url;
             button.addEventListener("click", saveFavCat.bind("idCat", cat.id))
+            button.classList.add("btn")
+            button.classList.add("btn-primary")
             button.appendChild(buttonText);
             article.appendChild(img);
             article.appendChild(button);
