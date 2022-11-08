@@ -33,14 +33,12 @@ async function loadRandomCats(){
             button.appendChild(buttonText);
             article.appendChild(img);
             article.appendChild(button);
-
             fragment.appendChild(article)
         })
         randomSection.appendChild(fragment)
     }
     return randomData
 }
-
 async function loadFavoritesCats() {
     const response = await fetch(API_Fav, {
         method: "GET",
