@@ -28,16 +28,16 @@
             display: flex;
             flex-direction: column;
         }
-        #fav-cats {
-            display: none;
-        }
         button {
             width: max-content;
         }
         img {
-            width: 100%;
+            width: 150px;/*cambiar al 100% */
             height: auto;
             margin: 16px 0;
+        }
+        .none {
+            display: none;
         }
         #cat-button {
             margin: 24px 0;
@@ -55,6 +55,7 @@
             <button type="button" onclick="uploadCatPic()">Upload Cat Photo</button>
         </form>
     </section>
+    <button onclick="change()" class="btn btn-primary change">Change</button>
     <section class="feed">
         <section id="random-cats">
             <h2>Random Kitties</h2>
@@ -63,7 +64,7 @@
             <!---->
             <button onclick="loadRandomCats()" id="cat-button">Get Random Cats</button>
         </section>
-        <section id="fav-cats">
+        <section id="fav-cats" class="none">
             <h2>Favorites Cats</h2>
             <article>
                 <button id="nofav-button">Sacar de Favoritos</button>

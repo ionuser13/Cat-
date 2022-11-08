@@ -5,10 +5,10 @@ api.defaults.headers.common["X-API-KEY"] = "live_armx4JrLwsJuAo9OitmUn4ieHibSokk
 
 const API_Main = "https://api.thecatapi.com/v1/images/search?limit=10";
 const API_Fav = "https://api.thecatapi.com/v1/favourites";
-const API_Delete = (id) => `https://api.thecatapi.com/v1/favourites/${id}`
-const API_upload = "https://api.thecatapi.com/v1/images/upload"
-
-const spanError = document.getElementById("error");
+const API_Delete = (id) => `https://api.thecatapi.com/v1/favourites/${id}`;
+const API_upload = "https://api.thecatapi.com/v1/images/upload";
+const randCat = document.querySelector("#random-cats");
+const favCat = document.querySelector("#fav-cats")
 
 async function loadRandomCats(){
     const response = await fetch(API_Main);
@@ -130,6 +130,10 @@ async function uploadCatPic() {
         console.log(data.url)
         saveFavCat(data.id)
     }
+}
+function change() {
+    randCat.classList.toggle("none");
+    favCat.classList.toggle("none");
 }
 loadRandomCats()
 loadFavoritesCats()
