@@ -1,0 +1,37 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    height: 100vh;
+    position: fixed;
+}
+h1 {
+    font-size: 3rem;
+    width: max-content;
+}
+h2 {
+    font-size: 2.8rem;
+}
+#random-cats article {
+    display: flex;
+    flex-direction: column;
+}
+button {
+    width: max-content;
+}
+img {
+    width: 100%;/*cambiar al 100% */
+    height: auto;
+    margin: 16px 0;
+}
+.none {
+    display: none;
+}
+#cat-button {
+    margin: 24px 0;
+}
