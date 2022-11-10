@@ -29,6 +29,7 @@ async function loadRandomCats(){
             button.addEventListener("click", saveFavCat.bind("idCat", cat.id))
             button.classList.add("btn")
             button.classList.add("btn-primary")
+            button.classList.add("mx-auto")
             button.appendChild(buttonText);
             article.appendChild(img);
             article.appendChild(button);
