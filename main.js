@@ -22,17 +22,15 @@ async function loadRandomCats(){
         const fragment = new DocumentFragment();
         randomData.forEach(cat =>{
             const article = document.createElement("article");
+            article.classList.add("random-cats-article")
             const img = document.createElement("img");
             const button = document.createElement("button");
-            const buttonText = document.createTextNode("Guardar en favoritos");
+            const buttonText = document.createTextNode("♡");
             img.src = cat.url;
             button.addEventListener("click", saveFavCat.bind("idCat", cat.id))
-            button.classList.add("btn")
-            button.classList.add("btn-primary")
-            button.classList.add("mx-auto")
+            button.classList.add("btn-primary", "mx-auto", "add-to-fav")
             button.appendChild(buttonText);
-            article.appendChild(img);
-            article.appendChild(button);
+            article.append(img, button)
             fragment.appendChild(article)
         })
         randomSection.appendChild(fragment)
