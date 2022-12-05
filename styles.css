@@ -56,6 +56,7 @@ img {
     width: 100%;/*cambiar al 100% */
     height: auto;
     margin: 16px 0;
+    border-radius: 16px;
 }
 .none {
     display: none;
