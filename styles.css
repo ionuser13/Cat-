@@ -8,7 +8,17 @@ html {
 }
 body {
     height: 100vh;
-    position: fixed;
+}
+main {
+    width: 320px;
+    height: 520px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.main-content {
+    position: relative;
+    overflow-y: auto;
 }
 h1 {
     font-size: 3rem;

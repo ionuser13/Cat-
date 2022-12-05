@@ -9,7 +9,7 @@ const API_Delete = (id) => `https://api.thecatapi.com/v1/favourites/${id}`;
 const API_upload = "https://api.thecatapi.com/v1/images/upload";
 const randCat = document.querySelector("#random-cats");
 const favCat = document.querySelector("#fav-cats");
-const reloadButton = document.querySelector("#cat-button")
+const reloadButton = document.querySelector("#cat-button");
 
 async function loadRandomCats(){
     const response = await fetch(API_Main);
