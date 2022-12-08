@@ -10,6 +10,7 @@ const API_upload = "https://api.thecatapi.com/v1/images/upload";
 const randCat = document.querySelector("#random-cats");
 const favCat = document.querySelector("#fav-cats");
 const reloadButton = document.querySelector("#cat-button");
+const changeBtn = document.querySelector(".change");
 
 async function loadRandomCats(){
     const response = await fetch(API_Main);
@@ -31,7 +32,7 @@ async function loadRandomCats(){
             button.classList.add("btn-primary", "mx-auto", "add-to-fav")
             button.appendChild(buttonText);
             article.append(img, button)
-            fragment.appendChild(article)
+            fragment.appendChild(article);
         })
         randomSection.appendChild(fragment)
     }
@@ -130,6 +131,15 @@ async function uploadCatPic() {
 function change() {
     randCat.classList.toggle("none");
     favCat.classList.toggle("none");
+    if(!randCat.classList.contains("none")){
+        changeBtn.textContent = "See Favorites"
+    }
+    else if (!favCat.classList.contains("none")) {
+        changeBtn.textContent = "See random cats"
+    }
+    else {
+        changeBtn.textContent = "See favorites";
+    }
 }
 reloadButton.addEventListener("click", () =>{
     const randomSection = document.querySelector("#random-cats");;
