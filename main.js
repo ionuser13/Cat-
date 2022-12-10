@@ -11,6 +11,9 @@ const randCat = document.querySelector("#random-cats");
 const favCat = document.querySelector("#fav-cats");
 const reloadButton = document.querySelector("#cat-button");
 const changeBtn = document.querySelector(".change");
+const uploadBtn = document.querySelector(".upload");
+const uploadSection = document.querySelector("#uploading-cat");
+
 
 async function loadRandomCats(){
     const response = await fetch(API_Main);
@@ -38,6 +41,7 @@ async function loadRandomCats(){
     }
     return randomData
 }
+
 async function loadFavoritesCats() {
     const response = await fetch(API_Fav, {
         method: "GET",
@@ -106,6 +110,7 @@ async function deleteFavCat(id) {
         loadFavoritesCats()
     }
 }
+
 async function uploadCatPic() {
     const form = document.getElementById("uploading-form");
     const formData = new FormData(form);
@@ -128,19 +133,28 @@ async function uploadCatPic() {
         saveFavCat(data.id)
     }
 }
-function change() {
-    randCat.classList.toggle("none");
-    favCat.classList.toggle("none");
-    if(!randCat.classList.contains("none")){
-        changeBtn.textContent = "See Favorites"
-    }
-    else if (!favCat.classList.contains("none")) {
-        changeBtn.textContent = "See random cats"
-    }
-    else {
-        changeBtn.textContent = "See favorites";
-    }
+
+function home() {
+    randCat.classList.remove("none");
+    favCat.classList.add("none");
+    uploadSection.classList.add("none");
 }
+
+
+function showUploadSection() {
+    randCat.classList.add("none");
+    favCat.classList.add("none");
+    uploadSection.classList.remove("none");
+}
+uploadBtn.addEventListener("click", showUploadSection)
+
+function change() {
+    randCat.classList.add("none");
+    uploadSection.classList.remove("none");
+    favCat.classList.remove("none");
+}
+
+
 reloadButton.addEventListener("click", () =>{
     const randomSection = document.querySelector("#random-cats");;
     randomSection.innerHTML = "";
