@@ -42,7 +42,7 @@ button {
 }
 .add-to-fav {
     position: absolute;
-    right: 5px;
+    right: 5px; 
     bottom: 20px;
     font-size: 3rem;
     border-radius: 50%;
@@ -63,4 +63,20 @@ img {
 }
 #cat-button {
     margin: 24px 0;
+}
+#uploading-cat {
+    height: 340px; 
+}
+
+*::-webkit-scrollbar {
+    width: 8px;
+}
+*::-webkit-scrollbar-track {
+    background: transaparent;
+
+}
+*::-webkit-scrollbar-thumb {
+    background-color: #252850;
+    border-radius: 20px;
+    border: transparent;
 }
