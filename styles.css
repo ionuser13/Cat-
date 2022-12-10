@@ -18,6 +18,9 @@ main {
     border-radius: 30px;
     border: 6px solid black;
 }
+.upper {
+    margin: 12px 0;
+}
 .main-content {
     position: relative;
     overflow-y: auto;
@@ -61,13 +64,16 @@ img {
 .none {
     display: none;
 }
-#cat-button {
+#uploading-cat {
+    height: 395px; 
+}
+.lower {
+    display: flex;
+}
+.lower .btn {
+    height: max-content;
     margin: 24px 0;
 }
-#uploading-cat {
-    height: 340px; 
-}
-
 *::-webkit-scrollbar {
     width: 8px;
 }
