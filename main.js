@@ -10,8 +10,6 @@ const API_upload = "https://api.thecatapi.com/v1/images/upload";
 const randCat = document.querySelector("#random-cats");
 const favCat = document.querySelector("#fav-cats");
 const reloadButton = document.querySelector("#cat-button");
-const changeBtn = document.querySelector(".change");
-const uploadBtn = document.querySelector(".upload");
 const uploadSection = document.querySelector("#uploading-cat");
 
 
@@ -146,7 +144,6 @@ function showUploadSection() {
     favCat.classList.add("none");
     uploadSection.classList.remove("none");
 }
-uploadBtn.addEventListener("click", showUploadSection)
 
 function change() {
     randCat.classList.add("none");
