@@ -80,11 +80,17 @@ label[for="file"] {
     transform: scale(1.5);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+#file {
+    width: 0.1px;
+    height: 0.1px;
+    z-index: -1;
+    position: absolute;
+}
 .lower {
     display: flex;
     align-items: center;
 }
-.lower .btn {
+.button {
     width: 60px;
     height: 60px;
     margin: 24px 0;

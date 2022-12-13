@@ -158,7 +158,12 @@ function reload() {
     else {
         loadRandomCats()
     }
-    
 }
+
+function showPic() {
+    const form = document.querySelector("#uploading-form");
+    const output = document.querySelector("#upload-output")
+}
+
 loadRandomCats()
 //cambiar para cualquier numero de gatos
