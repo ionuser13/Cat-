@@ -17,6 +17,7 @@ main {
     position: relative;
     border-radius: 30px;
     border: 6px solid black;
+    background-color: #eef3e7;
 }
 .upper {
     margin: 12px 0;
@@ -25,6 +26,7 @@ main {
     position: relative;
     overflow-y: auto;
     scroll-behavior: smooth;
+    width: 90%;
 }
 h1 {
     font-size: 3rem;
@@ -53,7 +55,7 @@ button {
     height: 50px;
     border: none;
     text-align: center;
-    background-color: cadetblue;
+    background-color: #5e9ea1;
 }
 img {
     width: 100%;/*cambiar al 100% */
@@ -69,10 +71,15 @@ img {
 }
 .lower {
     display: flex;
+    align-items: center;
 }
 .lower .btn {
-    height: max-content;
+    width: 60px;
+    height: 60px;
     margin: 24px 0;
+    background-color: #5e9ea1;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 *::-webkit-scrollbar {
     width: 8px;

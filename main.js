@@ -9,7 +9,6 @@ const API_Delete = (id) => `https://api.thecatapi.com/v1/favourites/${id}`;
 const API_upload = "https://api.thecatapi.com/v1/images/upload";
 const randCat = document.querySelector("#random-cats");
 const favCat = document.querySelector("#fav-cats");
-const reloadButton = document.querySelector("#cat-button");
 const uploadSection = document.querySelector("#uploading-cat");
 
 
@@ -151,12 +150,11 @@ function change() {
     favCat.classList.remove("none");
 }
 
-
-reloadButton.addEventListener("click", () =>{
+function reload() {
     const randomSection = document.querySelector("#random-cats");;
     randomSection.innerHTML = "";
     loadRandomCats()
-})
+}
 loadRandomCats()
 loadFavoritesCats()
 //cambiar para cualquier numero de gatos
