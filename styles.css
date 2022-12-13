@@ -42,10 +42,10 @@ h2 {
 button {
     width: max-content;
 }
-.random-cats-article {
+.random-cats-article, .fav-cats-article {
     position: relative;
 }
-.add-to-fav {
+.fav {
     position: absolute;
     right: 5px; 
     bottom: 20px;

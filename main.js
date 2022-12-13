@@ -10,7 +10,7 @@ const API_upload = "https://api.thecatapi.com/v1/images/upload";
 const randCat = document.querySelector("#random-cats");
 const favCat = document.querySelector("#fav-cats");
 const uploadSection = document.querySelector("#uploading-cat");
-
+const title = document.querySelector(".title");
 
 async function loadRandomCats(){
     const response = await fetch(API_Main);
@@ -25,12 +25,11 @@ async function loadRandomCats(){
             const article = document.createElement("article");
             article.classList.add("random-cats-article")
             const img = document.createElement("img");
-            const button = document.createElement("button");
-            const buttonText = document.createTextNode("♡");
             img.src = cat.url;
+            const button = document.createElement("button");
+            button.innerHTML = '<i class="fa-regular fa-heart"></i>'
             button.addEventListener("click", saveFavCat.bind("idCat", cat.id))
-            button.classList.add("btn-primary", "mx-auto", "add-to-fav")
-            button.appendChild(buttonText);
+            button.classList.add("btn-primary", "mx-auto", "fav")
             article.append(img, button)
             fragment.appendChild(article);
         })
@@ -55,17 +54,13 @@ async function loadFavoritesCats() {
     else {
         const section = document.getElementById("fav-cats")
         section.innerHTML = "";
-        const h2 = document.createElement("h2");
-        const h2Text = document.createTextNode("Favorite Cats");
-        h2.appendChild(h2Text);
-        section.appendChild(h2);
         dataFav.forEach(cat => {
             const article = document.createElement("article");
+            article.classList.add("fav-cats-article")
             const img = document.createElement("img");
             const button = document.createElement("button");
-            const buttonText = document.createTextNode("Sacar de favoritos");
-
-            button.appendChild(buttonText);
+            button.classList.add("btn-primary", "mx-auto", "fav")
+            button.innerHTML = '<i class="fa-solid fa-heart-crack"></i>'
             button.classList.add("fav-button");
             button.onclick = () => deleteFavCat(cat.id)
             img.src = cat.image.url;
@@ -132,29 +127,38 @@ async function uploadCatPic() {
 }
 
 function home() {
+    title.innerHTML = '<i class="fa-solid fa-cat"></i>Cattogram<i class="fa-solid fa-cat"></i>'
     randCat.classList.remove("none");
     favCat.classList.add("none");
     uploadSection.classList.add("none");
 }
 
-
 function showUploadSection() {
+    title.innerHTML = '<i class="fa-solid fa-cat"></i>Upload your cat<i class="fa-solid fa-cat"></i>'
     randCat.classList.add("none");
     favCat.classList.add("none");
     uploadSection.classList.remove("none");
 }
 
 function change() {
+    loadFavoritesCats();
+    title.innerHTML = '<i class="fa-solid fa-cat"></i>Favorite cats<i class="fa-solid fa-cat"></i>'
     randCat.classList.add("none");
-    uploadSection.classList.remove("none");
+    uploadSection.classList.add("none");
     favCat.classList.remove("none");
 }
 
 function reload() {
     const randomSection = document.querySelector("#random-cats");;
     randomSection.innerHTML = "";
-    loadRandomCats()
+    if(randCat.classList.contains("none")) {
+        home();
+        loadRandomCats()
+    }
+    else {
+        loadRandomCats()
+    }
+    
 }
 loadRandomCats()
-loadFavoritesCats()
 //cambiar para cualquier numero de gatos

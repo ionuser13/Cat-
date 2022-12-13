@@ -12,7 +12,7 @@
 <body class="container-fluid bg-info d-grid">
     <main class="m-auto">
         <div class="upper container">
-            <h1 class="mx-auto"><i class="fa-solid fa-cat"></i>Cattogram</h1>
+            <h1 class="title mx-auto"><i class="fa-solid fa-cat"></i>Cattogram<i class="fa-solid fa-cat"></i></h1>
         </div>
         <div class="container main-content d-flex flex-column align-items-center">
             <section class="feed">
@@ -20,15 +20,13 @@
                     <!---->
                 </section>
                 <section id="fav-cats" class="none">
-                    <h2>Favorites Cats</h2>
                     <article>
                         <button id="nofav-button">Sacar de Favoritos</button>
                     </article>
                 </section>
             </section>
             <section id="uploading-cat" class="none">
-                <h2>Upload your cat's pics</h2>
-                <form id="uploading-form">
+                <form id="uploading-form" class="w-100 h-100 d-flex flex-column justify-content-center align-items-center">
                     <input id="file" type="file" name="file">
                     <button type="button" class="mx-auto" onclick="uploadCatPic()">Upload Cat Photo</button>
                 </form>
