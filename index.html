@@ -27,6 +27,9 @@
             </section>
             <section id="uploading-cat" class="none">
                 <form id="uploading-form" class="w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+                    <p class="none">We uploaded your cat!</p>
+                    <img class="none" alt="uploaded image" id="upload-output">
+                    <label for="file">Select a file</label>
                     <input id="file" type="file" name="file">
                     <button type="button" class="mx-auto" onclick="uploadCatPic()">Upload Cat Photo</button>
                 </form>
@@ -35,7 +38,7 @@
         <div class="lower container">
             <button onclick="home()" class="mx-auto btn btn-primary rounded-circle fs-3" id="home-button"><i class="fa-solid fa-house"></i></button>
             <button onclick="change()" class="btn btn-primary change mx-auto rounded-circle fs-3"><i class="fa-solid fa-star"></i></button>
-            <button onclick="showUploadSection()" class="btn btn-primary upload mx-auto rounded-circle fs-3"><i class="fa-solid fa-upload"></i></button>
+            <button onclick="showUploadSection()" class="btn btn-primary upload mx-auto rounded-circle fs-3"><i class="fa-solid fa-cloud-arrow-up"></i></button>
             <button onclick="reload()" class="btn btn-primary mx-auto rounded-circle fs-3"><i class="fa-solid fa-rotate-right"></i></button>
         </div>
     </main>

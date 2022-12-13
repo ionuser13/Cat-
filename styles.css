@@ -69,6 +69,17 @@ img {
 #uploading-cat {
     height: 395px; 
 }
+label[for="file"] {
+    background-color: #5e9ea1;
+    width: 150px;
+    height: auto;
+    padding: 4px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    transform: scale(1.5);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
 .lower {
     display: flex;
     align-items: center;
