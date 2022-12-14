@@ -22,3 +22,6 @@ If you want to share your own photos of cats with the Cat API, you can do so by 
 ## Conclusion
 
 We hope you enjoy using the Cat App and browsing through all the cute cat pictures! If you have any questions or feedback, please don't hesitate to contact us. Happy cat viewing!
+
+### Contact
+You can find me on [Twitter](https://twitter.com/ionuser03).
