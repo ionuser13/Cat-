@@ -11,6 +11,7 @@ const randCat = document.querySelector("#random-cats");
 const favCat = document.querySelector("#fav-cats");
 const uploadSection = document.querySelector("#uploading-cat");
 const title = document.querySelector(".title");
+const uploadFile = document.querySelector("#file");
 
 async function loadRandomCats(){
     const response = await fetch(API_Main);
@@ -162,8 +163,16 @@ function reload() {
 
 function showPic() {
     const form = document.querySelector("#uploading-form");
-    const output = document.querySelector("#upload-output")
-}
+    const output = document.querySelector("#upload-output");
+    const formData = new FormData(form);
 
+    output.classList.remove("none");
+    output.src = URL.createObjectURL(formData.get("file"));
+    output.classList.remove("none");
+    if(!formData.get("file").name) {
+        output.classList.add("none")
+    }
+}
+uploadFile.addEventListener("change", showPic)
 loadRandomCats()
 //cambiar para cualquier numero de gatos

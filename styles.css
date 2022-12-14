@@ -79,6 +79,7 @@ label[for="file"] {
     font-weight: bold;
     transform: scale(1.5);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    cursor: pointer;
 }
 #file {
     width: 0.1px;
