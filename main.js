@@ -12,6 +12,7 @@ const favCat = document.querySelector("#fav-cats");
 const uploadSection = document.querySelector("#uploading-cat");
 const title = document.querySelector(".title");
 const uploadFile = document.querySelector("#file");
+const uploadMessage = document.querySelector(".upload-text")
 
 async function loadRandomCats(){
     const response = await fetch(API_Main);
@@ -107,23 +108,35 @@ async function deleteFavCat(id) {
 async function uploadCatPic() {
     const form = document.getElementById("uploading-form");
     const formData = new FormData(form);
-    const response = await fetch(API_upload, {
-        method: "POST",
-        headers: {
-            "X-API-KEY": "live_armx4JrLwsJuAo9OitmUn4ieHibSokktW9YTlE6Du6q6InUtMOArwesfWhg3Sjfk"
-        },
-        body: formData,
-    })
-    const data = await response.json();
-    console.log(formData.get("file"))
-    if(response.status!== 201) {
-        spanError.innerHTML = `There was an error when uploading cat: ${response.status} ${data.message}`
+    const output = document.querySelector("#upload-output");
+    output.classList.add("none");
+    uploadMessage.classList.remove("none");
+    uploadMessage.innerHTML = `We are uploading your Cat`
+    try {
+        const response = await fetch(API_upload, {
+            method: "POST",
+            headers: {
+                "X-API-KEY": "live_armx4JrLwsJuAo9OitmUn4ieHibSokktW9YTlE6Du6q6InUtMOArwesfWhg3Sjfk"
+            },
+            body: formData,
+        })
+        const data = await response.json();
+        const response1 = await fetch(`${API_Fav}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-API-KEY": "live_armx4JrLwsJuAo9OitmUn4ieHibSokktW9YTlE6Du6q6InUtMOArwesfWhg3Sjfk",
+            },
+            body: JSON.stringify({
+                image_id: data.id,
+            }),
+        });
+        if(data.approved === 1) {
+            uploadMessage.innerHTML = "We uploaded your Cat!"
+        }
     }
-    else {
-        console.log("Cat pic uploaded");
-        console.log({data});
-        console.log(data.url)
-        saveFavCat(data.id)
+    catch (error) {
+        
     }
 }
 
@@ -167,6 +180,7 @@ function showPic() {
     const formData = new FormData(form);
 
     output.classList.remove("none");
+    uploadMessage.classList.add("none");
     output.src = URL.createObjectURL(formData.get("file"));
     output.classList.remove("none");
     if(!formData.get("file").name) {
